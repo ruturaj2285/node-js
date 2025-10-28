@@ -17,4 +17,6 @@ jobs:
     - name: Build the Docker image
       run: |
         cd hello-node
-        docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        docker build -t hello-node .
+        docker run -d -p 3000:3000 hello-node
+        curl http://localhost:3000
